@@ -4,4 +4,5 @@ import com.cn.hnust.pojo.User;
 
 public interface UserService {
     public User getUserById(int userId);
+    public User insertUser(User user);
 }

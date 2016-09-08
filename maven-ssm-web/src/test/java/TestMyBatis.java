@@ -13,7 +13,6 @@ import com.cn.hnust.service.UserService;
   
 @RunWith(SpringJUnit4ClassRunner.class)     //表示继承了SpringJUnit4ClassRunner类  
 @ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})  
-  
 public class TestMyBatis {  
     private static Logger logger = Logger.getLogger(TestMyBatis.class);  
 //  private ApplicationContext ac = null;  
@@ -33,4 +32,16 @@ public class TestMyBatis {
         // logger.info("值："+user.getUserName());  
         logger.info(JSON.toJSONString(user));  
     }  
+//    @Test  
+//    public void test2() { 
+//    	User user1=new User();
+//    	user1.setAge(20);
+//    	user1.setId(2);
+//    	user1.setPassword("123456789");
+//    	user1.setUserName("小泽");
+//        User user = userService.insertUser(user1);
+//        // System.out.println(user.getUserName());  
+//        // logger.info("值："+user.getUserName());  
+//        logger.info(JSON.toJSONString(user));  
+//    }  
 }  
