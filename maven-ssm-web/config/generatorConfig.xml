@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >  
+<generatorConfiguration>  
+    <classPathEntry  
+        <!-- 驱动的绝对路径 -->  
+        location="D:\maven\repository\org\postgresql\postgresql\9.3-1103-jdbc41\postgresql-9.3-1103-jdbc41.jar" />  
+    <context id="context1">  
+        <commentGenerator>  
+            <property name="suppressAllComments" value="true" /><!-- 是否取消注释 -->  
+            <property name="suppressDate" value="false" /> <!-- 是否生成注释代时间戳 -->  
+        </commentGenerator>  
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"  
+            connectionURL="jdbc:mysql://localhost:8080/ssm?useUnicode=true&characterEncoding=UTF-8" userId="root"  
+            password="1234" />  
+              
+        <!-- targetPackage是目标包名,  targetProject是包所在的位置-->  
+        <!-- javaModelGenerator生成的是实体类,  sqlMapGenerator生成的是映射文件,  javaClientGenerator生成的是dao -->  
+        <javaModelGenerator targetPackage="com.cn.hnust.controller"  
+            targetProject="Java Resource\src\main\java\com\cn\hnust\controller" />  
+        <sqlMapGenerator targetPackage="com.cn.hnust.controller"  
+            targetProject="Java Resource\src\main\java\com\cn\hnust\controller" />  
+        <javaClientGenerator targetPackage="com.cn.hnust.controller"  
+            targetProject="Java Resource\src\main\java\com\cn\hnust\controller" type="XMLMAPPER" />  
+              
+        <!-- domainObjectName是表对应的实体类名,  tableName是对应的表名-->  
+        <!-- table可以配置多个,enable*几个参数是为了自动生成一些额外的sql操作,可以关闭-->  
+        <table domainObjectName="StudentInfoDto" tableName="student_info"  
+            enableCountByExample="false" enableUpdateByExample="false"  
+            enableDeleteByExample="false" enableSelectByExample="false"  
+            selectByExampleQueryId="false">  
+        </table>  
+        <table domainObjectName="TeacherInfoDto" tableName="teacher_info"  
+            enableCountByExample="false" enableUpdateByExample="false"  
+            enableDeleteByExample="false" enableSelectByExample="false"  
+            selectByExampleQueryId="false">  
+        </table>  
+    </context>  
+</generatorConfiguration>  
