@@ -15,7 +15,7 @@ import com.cn.hnust.service.impl.UserServiceImpl;
 @RequestMapping("/user")  
 public class UserController {  
     @Resource
-    private UserServiceImpl userService;  
+    private UserService userService;  
       
     @RequestMapping("/showUser")  
     public String toIndex(HttpServletRequest request,Model model){  
@@ -31,9 +31,9 @@ public class UserController {
     public String toIndex1(HttpServletRequest request,Model model){  
         User user=new User();
         user.setAge(20);
-        user.setId(2);
+        user.setId(4);
         user.setPassword("123456789");
-        user.setUserName("ะกิ๓");
+        user.setUserName("ะกีล");
        if(userService!=null){
        this.userService.insertUser(user);
         model.addAttribute("user", user); 

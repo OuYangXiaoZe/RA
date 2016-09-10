@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xiaoze.ra.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="cn.xiaoze.ra.pojo.User">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="loginname" jdbcType="VARCHAR" property="loginname" />
+    <result column="paypwd" jdbcType="VARCHAR" property="paypwd" />
+    <result column="loginpwd" jdbcType="VARCHAR" property="loginpwd" />
+    <result column="gender" jdbcType="BIT" property="gender" />
+    <result column="tepnumber" jdbcType="VARCHAR" property="tepnumber" />
+    <result column="right" jdbcType="INTEGER" property="right" />
+    <result column="wallet" jdbcType="INTEGER" property="wallet" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, loginname, paypwd, loginpwd, gender, tepnumber, right, wallet
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ra_user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ra_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.xiaoze.ra.pojo.User">
+    insert into ra_user (id, loginname, paypwd, 
+      loginpwd, gender, tepnumber, 
+      right, wallet)
+    values (#{id,jdbcType=INTEGER}, #{loginname,jdbcType=VARCHAR}, #{paypwd,jdbcType=VARCHAR}, 
+      #{loginpwd,jdbcType=VARCHAR}, #{gender,jdbcType=BIT}, #{tepnumber,jdbcType=VARCHAR}, 
+      #{right,jdbcType=INTEGER}, #{wallet,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.xiaoze.ra.pojo.User">
+    insert into ra_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="loginname != null">
+        loginname,
+      </if>
+      <if test="paypwd != null">
+        paypwd,
+      </if>
+      <if test="loginpwd != null">
+        loginpwd,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="tepnumber != null">
+        tepnumber,
+      </if>
+      <if test="right != null">
+        right,
+      </if>
+      <if test="wallet != null">
+        wallet,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="loginname != null">
+        #{loginname,jdbcType=VARCHAR},
+      </if>
+      <if test="paypwd != null">
+        #{paypwd,jdbcType=VARCHAR},
+      </if>
+      <if test="loginpwd != null">
+        #{loginpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=BIT},
+      </if>
+      <if test="tepnumber != null">
+        #{tepnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="right != null">
+        #{right,jdbcType=INTEGER},
+      </if>
+      <if test="wallet != null">
+        #{wallet,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.xiaoze.ra.pojo.User">
+    update ra_user
+    <set>
+      <if test="loginname != null">
+        loginname = #{loginname,jdbcType=VARCHAR},
+      </if>
+      <if test="paypwd != null">
+        paypwd = #{paypwd,jdbcType=VARCHAR},
+      </if>
+      <if test="loginpwd != null">
+        loginpwd = #{loginpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=BIT},
+      </if>
+      <if test="tepnumber != null">
+        tepnumber = #{tepnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="right != null">
+        right = #{right,jdbcType=INTEGER},
+      </if>
+      <if test="wallet != null">
+        wallet = #{wallet,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.xiaoze.ra.pojo.User">
+    update ra_user
+    set loginname = #{loginname,jdbcType=VARCHAR},
+      paypwd = #{paypwd,jdbcType=VARCHAR},
+      loginpwd = #{loginpwd,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=BIT},
+      tepnumber = #{tepnumber,jdbcType=VARCHAR},
+      right = #{right,jdbcType=INTEGER},
+      wallet = #{wallet,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

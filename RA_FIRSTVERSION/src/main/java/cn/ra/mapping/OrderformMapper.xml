@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ra.dao.OrderformMapper">
+  <resultMap id="BaseResultMap" type="cn.ra.pojo.Orderform">
+    <id column="orderformid" jdbcType="INTEGER" property="orderformid" />
+    <result column="totalamount" jdbcType="INTEGER" property="totalamount" />
+    <result column="tableno" jdbcType="INTEGER" property="tableno" />
+    <result column="dishnumber" jdbcType="INTEGER" property="dishnumber" />
+    <result column="totalmoney" jdbcType="INTEGER" property="totalmoney" />
+    <result column="merchantid" jdbcType="INTEGER" property="merchantid" />
+    <result column="createdate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="finishdate" jdbcType="TIMESTAMP" property="finishdate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    orderformid, totalamount, tableno, dishnumber, totalmoney, merchantid, createdate, 
+    finishdate
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ra_orderform
+    where orderformid = #{orderformid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ra_orderform
+    where orderformid = #{orderformid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.ra.pojo.Orderform">
+    insert into ra_orderform (orderformid, totalamount, tableno, 
+      dishnumber, totalmoney, merchantid, 
+      createdate, finishdate)
+    values (#{orderformid,jdbcType=INTEGER}, #{totalamount,jdbcType=INTEGER}, #{tableno,jdbcType=INTEGER}, 
+      #{dishnumber,jdbcType=INTEGER}, #{totalmoney,jdbcType=INTEGER}, #{merchantid,jdbcType=INTEGER}, 
+      #{createdate,jdbcType=TIMESTAMP}, #{finishdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.ra.pojo.Orderform">
+    insert into ra_orderform
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderformid != null">
+        orderformid,
+      </if>
+      <if test="totalamount != null">
+        totalamount,
+      </if>
+      <if test="tableno != null">
+        tableno,
+      </if>
+      <if test="dishnumber != null">
+        dishnumber,
+      </if>
+      <if test="totalmoney != null">
+        totalmoney,
+      </if>
+      <if test="merchantid != null">
+        merchantid,
+      </if>
+      <if test="createdate != null">
+        createdate,
+      </if>
+      <if test="finishdate != null">
+        finishdate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderformid != null">
+        #{orderformid,jdbcType=INTEGER},
+      </if>
+      <if test="totalamount != null">
+        #{totalamount,jdbcType=INTEGER},
+      </if>
+      <if test="tableno != null">
+        #{tableno,jdbcType=INTEGER},
+      </if>
+      <if test="dishnumber != null">
+        #{dishnumber,jdbcType=INTEGER},
+      </if>
+      <if test="totalmoney != null">
+        #{totalmoney,jdbcType=INTEGER},
+      </if>
+      <if test="merchantid != null">
+        #{merchantid,jdbcType=INTEGER},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finishdate != null">
+        #{finishdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.ra.pojo.Orderform">
+    update ra_orderform
+    <set>
+      <if test="totalamount != null">
+        totalamount = #{totalamount,jdbcType=INTEGER},
+      </if>
+      <if test="tableno != null">
+        tableno = #{tableno,jdbcType=INTEGER},
+      </if>
+      <if test="dishnumber != null">
+        dishnumber = #{dishnumber,jdbcType=INTEGER},
+      </if>
+      <if test="totalmoney != null">
+        totalmoney = #{totalmoney,jdbcType=INTEGER},
+      </if>
+      <if test="merchantid != null">
+        merchantid = #{merchantid,jdbcType=INTEGER},
+      </if>
+      <if test="createdate != null">
+        createdate = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finishdate != null">
+        finishdate = #{finishdate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where orderformid = #{orderformid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.ra.pojo.Orderform">
+    update ra_orderform
+    set totalamount = #{totalamount,jdbcType=INTEGER},
+      tableno = #{tableno,jdbcType=INTEGER},
+      dishnumber = #{dishnumber,jdbcType=INTEGER},
+      totalmoney = #{totalmoney,jdbcType=INTEGER},
+      merchantid = #{merchantid,jdbcType=INTEGER},
+      createdate = #{createdate,jdbcType=TIMESTAMP},
+      finishdate = #{finishdate,jdbcType=TIMESTAMP}
+    where orderformid = #{orderformid,jdbcType=INTEGER}
+  </update>
+</mapper>

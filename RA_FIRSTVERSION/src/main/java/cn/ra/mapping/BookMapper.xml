@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ra.dao.BookMapper">
+  <resultMap id="BaseResultMap" type="cn.ra.pojo.Book">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="bookName" jdbcType="VARCHAR" property="bookname" />
+    <result column="writer" jdbcType="VARCHAR" property="writer" />
+    <result column="booktype" jdbcType="VARCHAR" property="booktype" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, bookName, writer, booktype
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ra_book
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ra_book
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.ra.pojo.Book">
+    insert into ra_book (id, bookName, writer, 
+      booktype)
+    values (#{id,jdbcType=INTEGER}, #{bookname,jdbcType=VARCHAR}, #{writer,jdbcType=VARCHAR}, 
+      #{booktype,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.ra.pojo.Book">
+    insert into ra_book
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="bookname != null">
+        bookName,
+      </if>
+      <if test="writer != null">
+        writer,
+      </if>
+      <if test="booktype != null">
+        booktype,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="bookname != null">
+        #{bookname,jdbcType=VARCHAR},
+      </if>
+      <if test="writer != null">
+        #{writer,jdbcType=VARCHAR},
+      </if>
+      <if test="booktype != null">
+        #{booktype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.ra.pojo.Book">
+    update ra_book
+    <set>
+      <if test="bookname != null">
+        bookName = #{bookname,jdbcType=VARCHAR},
+      </if>
+      <if test="writer != null">
+        writer = #{writer,jdbcType=VARCHAR},
+      </if>
+      <if test="booktype != null">
+        booktype = #{booktype,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.ra.pojo.Book">
+    update ra_book
+    set bookName = #{bookname,jdbcType=VARCHAR},
+      writer = #{writer,jdbcType=VARCHAR},
+      booktype = #{booktype,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
