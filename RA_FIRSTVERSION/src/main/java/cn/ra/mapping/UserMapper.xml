@@ -8,11 +8,10 @@
     <result column="loginpwd" jdbcType="VARCHAR" property="loginpwd" />
     <result column="gender" jdbcType="BIT" property="gender" />
     <result column="tepnumber" jdbcType="VARCHAR" property="tepnumber" />
-    <result column="right" jdbcType="INTEGER" property="right" />
     <result column="wallet" jdbcType="INTEGER" property="wallet" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, loginname, paypwd, loginpwd, gender, tepnumber, right, wallet
+    id, loginname, paypwd, loginpwd, gender, tepnumber, wallet
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -26,10 +25,11 @@
   </delete>
   <insert id="insert" parameterType="cn.ra.pojo.User">
     insert into ra_user (id, loginname, paypwd, 
-      loginpwd, gender, tepnumber,right, wallet) 
+      loginpwd, gender, tepnumber, 
+      wallet)
     values (#{id,jdbcType=INTEGER}, #{loginname,jdbcType=VARCHAR}, #{paypwd,jdbcType=VARCHAR}, 
       #{loginpwd,jdbcType=VARCHAR}, #{gender,jdbcType=BIT}, #{tepnumber,jdbcType=VARCHAR}, 
-      #{right,jdbcType=INTEGER}, #{wallet,jdbcType=INTEGER})
+      #{wallet,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="cn.ra.pojo.User">
     insert into ra_user
@@ -51,9 +51,6 @@
       </if>
       <if test="tepnumber != null">
         tepnumber,
-      </if>
-      <if test="right != null">
-        right,
       </if>
       <if test="wallet != null">
         wallet,
@@ -78,9 +75,6 @@
       <if test="tepnumber != null">
         #{tepnumber,jdbcType=VARCHAR},
       </if>
-      <if test="right != null">
-        #{right,jdbcType=INTEGER},
-      </if>
       <if test="wallet != null">
         #{wallet,jdbcType=INTEGER},
       </if>
@@ -104,9 +98,6 @@
       <if test="tepnumber != null">
         tepnumber = #{tepnumber,jdbcType=VARCHAR},
       </if>
-      <if test="right != null">
-        right = #{right,jdbcType=INTEGER},
-      </if>
       <if test="wallet != null">
         wallet = #{wallet,jdbcType=INTEGER},
       </if>
@@ -120,7 +111,6 @@
       loginpwd = #{loginpwd,jdbcType=VARCHAR},
       gender = #{gender,jdbcType=BIT},
       tepnumber = #{tepnumber,jdbcType=VARCHAR},
-      right = #{right,jdbcType=INTEGER},
       wallet = #{wallet,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>

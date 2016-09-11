@@ -32,38 +32,67 @@ public class TestMyBatis {
 //      userService = (IUserService) ac.getBean("userService");  
 //  }  
   
-    @Test  
-    public void test1() {  
-    	/*
-    	 * 用户的插入语句出错insert
-    	 * 
-    	 */
-         userService.findUserById(1); 
-        // System.out.println(user.getUserName());  
-        // logger.info("值："+user.getUserName());  
-//        logger.info(JSON.toJSONString(user));  
-    }  
+    
+    
+//    @Test  
+//    public void test1() {  插入用户
+//    	/*
+//    	 * 用户的插入语句出错insert
+//    	 * 
+//    	 */
+//         User user=userService.findUserById(1); 
+//        System.out.println(user.getLoginname());
+//        System.out.println(user.getId());
+//        System.out.println(user.getPaypwd());
+//        System.out.println(user.getGender());
+//        System.out.println(user.getTepnumber());
+//        System.out.println(user.getWallet());
+//         
+//        // System.out.println(user.getUserName());  
+//        // logger.info("值："+user.getUserName());  
+////        logger.info(JSON.toJSONString(user));  
+//    }  
+    
+    
+    
 //    @Test  
 //    public void test2() {  
 //    	Dish dish=new Dish();
 //    	dish.setDishname("123456");
 //    	dish.setDishprice(123);
 //    	dish.setDishtype(2);
-//    	dish.setId(1);
+//    	dish.setId(7);
 //    	this.dishService.insert(dish);
 //    	
 //    }
+    
+    
 
-//    @Test  
+//    @Test  修改用户信息
 //    public void test2() { 
 //    	User user1=new User();
-//    	user1.setAge(20);
-//    	user1.setId(2);
-//    	user1.setPassword("123456789");
-//    	user1.setUserName("小泽");
-//        User user = userService.insertUser(user1);
+//    
+//    	user1.setId(5);
+//    	user1.setLoginname("欧阳泽鹏");
+//    	user1.setGender(true);
+//    	user1.setLoginpwd("123456789");
+//    	user1.setPaypwd("123456789");
+//    	user1.setTepnumber("10101010101");
+//    	user1.setWallet(1234);
+//        userService.updateUserInfoById(user1);
 //        // System.out.println(user.getUserName());  
 //        // logger.info("值："+user.getUserName());  
-//        logger.info(JSON.toJSONString(user));  
+//        logger.info(JSON.toJSONString(user1));  
+//    }  
+    
+    
+    
+//    @Test  删除一个用户
+//    public void test2() { 
+//    
+//        userService.deleteUserById(4);
+//        // System.out.println(user.getUserName());  
+//        // logger.info("值："+user.getUserName());  
+//       
 //    }  
 }  

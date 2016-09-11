@@ -14,9 +14,9 @@ public class UserServiceImpl implements UserService {
 	@Resource
 	private UserMapper userDao;
 
-	public void findUserById(int userid) {
+	public User findUserById(int userid) {
 	
-
+        return this.userDao.selectByPrimaryKey(userid);
 	}
 
 	public void insert(User user) {
@@ -24,14 +24,21 @@ public class UserServiceImpl implements UserService {
 
 	}
 
-	public void updateUserInfoById(int userid) {
-		// TODO Auto-generated method stub
+
+
+	public void deleteUserById(int userid) {
+	this.userDao.deleteByPrimaryKey(userid);
 
 	}
 
-	public void deleteUserById(int userid) {
+	public void updateUserInfoById(int userid) {
 		// TODO Auto-generated method stub
+		
+	}
 
+	public void updateUserInfoById(User user) {
+		this.userDao.updateByPrimaryKeySelective(user);
+		
 	}
 
 }

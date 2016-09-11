@@ -13,8 +13,6 @@ public class User {
 
     private String tepnumber;
 
-    private Integer right;
-
     private Integer wallet;
 
     public Integer getId() {
@@ -63,14 +61,6 @@ public class User {
 
     public void setTepnumber(String tepnumber) {
         this.tepnumber = tepnumber == null ? null : tepnumber.trim();
-    }
-
-    public Integer getRight() {
-        return right;
-    }
-
-    public void setRight(Integer right) {
-        this.right = right;
     }
 
     public Integer getWallet() {

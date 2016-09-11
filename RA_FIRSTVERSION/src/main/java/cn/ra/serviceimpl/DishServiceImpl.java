@@ -13,18 +13,22 @@ public class DishServiceImpl implements DishService {
 	@Resource
 	public DishMapper dishDao;
 
-	public void findDishById(int dishid) {
-		// TODO Auto-generated method stub
+	public Dish findDishById(int dishid) {
+		return this.dishDao.selectByPrimaryKey(dishid);
 
 	}
 
+    public void updateDishInfo(Dish dish) {
+		 this.dishDao.updateByPrimaryKey(dish);
+ 
+	}
 	public void updateDishInfoById(int dishid) {
-		// TODO Auto-generated method stub
+		
 
 	}
 
 	public void deleteDishById(int dishid) {
-		// TODO Auto-generated method stub
+		this.dishDao.deleteByPrimaryKey(dishid);
 
 	}
 
